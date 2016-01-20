@@ -10,7 +10,7 @@
 
 @protocol CustomViewDelegate <NSObject>
 
--(void)customView:(id)cell addButton:(UIButton *)button;
+-(void)customView:(id)view clickedButton:(UIButton *)button;
 
 @end
 

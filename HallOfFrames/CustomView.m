@@ -20,7 +20,8 @@
 
 
 - (IBAction)onColorButtonPress:(UIButton *)sender {
-	[self.delegate customView:self addButton:sender];
+    [self.delegate customView:self clickedButton:sender];
+    NSLog(@"Passed thru CV.m");
 }
 
 
