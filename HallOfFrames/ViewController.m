@@ -16,6 +16,7 @@
 @property UIColor *placeholderColor;
 @property NSIndexPath *indexPath;
 @property CustomView *xib;
+@property NSMutableArray *backgroundColorArray;
 @end
 
 @implementation ViewController
@@ -33,6 +34,13 @@
 	self.indexPath = [NSIndexPath new];
 	self.placeholderColor = [UIColor whiteColor];
 	[self.collectionView reloadData];
+	self.backgroundColorArray = [NSMutableArray arrayWithObjects:	[UIColor clearColor],
+																	[UIColor clearColor],
+																	[UIColor clearColor],
+																	[UIColor clearColor],
+																	[UIColor clearColor],
+																	[UIColor clearColor],
+																					nil];
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -49,7 +57,8 @@
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
 	
     PictureCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
-	cell.imageView.image = [self.pictureArray objectAtIndex:indexPath.row];
+		cell.imageView.image = [self.pictureArray objectAtIndex:indexPath.row];
+		cell.backgroundColor = [self.backgroundColorArray objectAtIndex:indexPath.row];
 	return cell;
 }
 
@@ -58,9 +67,9 @@
 }
 
 -(void)customView:(id)view clickedButton:(UIColor *)color {
-	PictureCollectionViewCell *cell = (PictureCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:self.indexPath];
-		cell.backgroundColor = color;
-    [self.xib setHidden:YES];
+	[self.backgroundColorArray replaceObjectAtIndex:self.indexPath.row withObject:color];
+		[self.xib setHidden:YES];
+	[self.collectionView reloadData];
 }
 
 @end
