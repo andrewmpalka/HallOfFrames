@@ -25,8 +25,8 @@
 	
 	if ([sender.titleLabel.text isEqualToString:@"Red"]) {
 		aColor = [UIColor redColor];
-	} else if ([sender.titleLabel.text isEqualToString:@"Green"]) {
-		aColor = [UIColor greenColor];
+	} else if ([sender.titleLabel.text isEqualToString:@"White"]) {
+		aColor = [UIColor whiteColor];
 	} else {
 		aColor = [UIColor blueColor];
 	}

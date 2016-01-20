@@ -13,23 +13,24 @@
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KDp-bp-NAM">
                     <rect key="frame" x="225" y="288" width="150" height="25"/>
-                    <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="25" id="Brm-lO-wn4"/>
                         <constraint firstAttribute="width" constant="150" id="adn-rU-rav"/>
                     </constraints>
-                    <state key="normal" title="Blue"/>
+                    <state key="normal" title="White"/>
                     <connections>
                         <action selector="onColorButtonPress:" destination="iN0-l3-epB" eventType="touchUpInside" id="bHo-I8-RGu"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kDz-HM-CWj">
                     <rect key="frame" x="225" y="138" width="150" height="25"/>
-                    <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="150" id="Daw-jT-3Qh"/>
                         <constraint firstAttribute="height" constant="25" id="dRL-bp-Uvg"/>
                     </constraints>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     <state key="normal" title="Red"/>
                     <connections>
                         <action selector="onColorButtonPress:" destination="iN0-l3-epB" eventType="touchUpInside" id="4W3-1L-8bE"/>
@@ -37,12 +38,13 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uTl-Gu-3Wi">
                     <rect key="frame" x="225" y="438" width="150" height="25"/>
-                    <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="25" id="UG5-R0-Mnh"/>
                         <constraint firstAttribute="width" constant="150" id="xht-cQ-wpC"/>
                     </constraints>
-                    <state key="normal" title="Green"/>
+                    <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="Blue"/>
                     <connections>
                         <action selector="onColorButtonPress:" destination="iN0-l3-epB" eventType="touchUpInside" id="49Z-dH-lXK"/>
                     </connections>
