@@ -10,8 +10,6 @@
 
 @interface PictureCollectionViewCell : UICollectionViewCell
 
-@property UIImage *image;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
-@property UIColor *frameColor;
 
 @end

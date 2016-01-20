@@ -10,6 +10,7 @@
 #import "CustomView.h"
 
 @interface ViewController : UIViewController
+@property UIColor *aColor;
 
 @end
 

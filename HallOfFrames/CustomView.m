@@ -20,8 +20,19 @@
 
 
 - (IBAction)onColorButtonPress:(UIButton *)sender {
-    [self.delegate customView:self clickedButton:sender];
-    NSLog(@"Passed thru CV.m");
+	
+	UIColor *aColor;
+	
+	if ([sender.titleLabel.text isEqualToString:@"Red"]) {
+		aColor = [UIColor redColor];
+	} else if ([sender.titleLabel.text isEqualToString:@"Green"]) {
+		aColor = [UIColor greenColor];
+	} else {
+		aColor = [UIColor blueColor];
+	}
+	
+	[self.delegate customView:self clickedButton:aColor];
+
 }
 
 

@@ -30,7 +30,8 @@
 													[UIImage imageNamed:@"6"],
 																		 nil];
 	self.indexPath = [NSIndexPath new];
-    
+	self.placeholderColor = [UIColor whiteColor];
+	[self.collectionView reloadData];
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -40,8 +41,6 @@
 	xib.delegate = self;
 	[self.view addSubview:xib];
 	self.indexPath = indexPath;
-	
-	
 }
 
 
@@ -50,8 +49,6 @@
 	
     PictureCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
 	cell.imageView.image = [self.pictureArray objectAtIndex:indexPath.row];
-	
-	
 	return cell;
 }
 
@@ -59,8 +56,9 @@
 	return self.pictureArray.count;
 }
 
--(void)customView:(id)view clickedButton:(UIButton *)button {
-        NSLog(@"Passed thru VC.m");
+-(void)customView:(id)view clickedButton:(UIColor *)color {
+	PictureCollectionViewCell *cell = (PictureCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:self.indexPath];
+		cell.backgroundColor = color;
 }
 
 @end

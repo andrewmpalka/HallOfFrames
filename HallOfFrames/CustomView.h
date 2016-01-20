@@ -7,16 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ViewController.h"
 
 @protocol CustomViewDelegate <NSObject>
 
--(void)customView:(id)view clickedButton:(UIButton *)button;
+-(void)customView:(id)view clickedButton:(UIColor *)color;
 
 @end
 
 
 @interface CustomView : UIView
 @property (nonatomic, assign) id <CustomViewDelegate> delegate;
+@property UIColor *passThroughColor;
 
 
 @end
