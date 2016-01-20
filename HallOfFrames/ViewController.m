@@ -7,21 +7,39 @@
 //
 
 #import "ViewController.h"
+#import "PictureCollectionViewCell.h"
 
-@interface ViewController ()
-
+@interface ViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
+@property NSArray *pictureArray;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+	self.pictureArray = [NSArray arrayWithObjects:
+													[UIImage imageNamed:@"1"],
+													[UIImage imageNamed:@"2"],
+													[UIImage imageNamed:@"3"],
+													[UIImage imageNamed:@"4"],
+													[UIImage imageNamed:@"5"],
+													[UIImage imageNamed:@"6"],
+																		 nil];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+	PictureCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
+	cell.imageView.image = [self.pictureArray objectAtIndex:indexPath.row];
+	
+	
+	return cell;
 }
+
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+	return 6;
+}
+
+
 
 @end
