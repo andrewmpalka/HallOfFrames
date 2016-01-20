@@ -13,7 +13,6 @@
 @interface ViewController () <UICollectionViewDataSource, UICollectionViewDelegate, CustomViewDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property NSArray *pictureArray;
-@property UIColor *placeholderColor;
 @property NSIndexPath *indexPath;
 @property CustomView *xib;
 @property NSMutableArray *backgroundColorArray;
@@ -23,6 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
 	self.pictureArray = [NSArray arrayWithObjects:
 													[UIImage imageNamed:@"1"],
 													[UIImage imageNamed:@"2"],
@@ -32,8 +32,8 @@
 													[UIImage imageNamed:@"6"],
 																		 nil];
 	self.indexPath = [NSIndexPath new];
-	self.placeholderColor = [UIColor whiteColor];
 	[self.collectionView reloadData];
+    
 	self.backgroundColorArray = [NSMutableArray arrayWithObjects:	[UIColor clearColor],
 																	[UIColor clearColor],
 																	[UIColor clearColor],
@@ -43,6 +43,7 @@
 																					nil];
 }
 
+//Method that allows us to do things upon selection of a cell
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
     CustomView *view = [[CustomView alloc]init];
@@ -53,7 +54,7 @@
 }
 
 
-
+//Two Required methods for CollectionView (similar to tableView)
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
 	
     PictureCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
@@ -65,7 +66,7 @@
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
 	return self.pictureArray.count;
 }
-
+//custom class delegate method
 -(void)customView:(id)view clickedButton:(UIColor *)color {
 	[self.backgroundColorArray replaceObjectAtIndex:self.indexPath.row withObject:color];
 		[self.xib setHidden:YES];
