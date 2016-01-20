@@ -11,7 +11,10 @@
 #import "CustomView.h"
 
 @interface ViewController () <UICollectionViewDataSource, UICollectionViewDelegate, CustomViewDelegate>
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property NSArray *pictureArray;
+@property UIColor *placeholderColor;
+@property NSIndexPath *indexPath;
 @end
 
 @implementation ViewController
@@ -26,14 +29,19 @@
 													[UIImage imageNamed:@"5"],
 													[UIImage imageNamed:@"6"],
 																		 nil];
+	self.indexPath = [NSIndexPath new];
     
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
     CustomView *view = [[CustomView alloc]init];
-
-[[[NSBundle mainBundle] loadNibNamed:@"CustomView" owner:view  options:nil] objectAtIndex:indexPath.row];
+	CustomView *xib = [[[NSBundle mainBundle] loadNibNamed:@"CustomView" owner:view  options:nil] objectAtIndex:0];
+	xib.delegate = self;
+	[self.view addSubview:xib];
+	self.indexPath = indexPath;
+	
+	
 }
 
 
