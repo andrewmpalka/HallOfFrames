@@ -15,6 +15,7 @@
 @property NSArray *pictureArray;
 @property UIColor *placeholderColor;
 @property NSIndexPath *indexPath;
+@property CustomView *xib;
 @end
 
 @implementation ViewController
@@ -37,9 +38,9 @@
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
     CustomView *view = [[CustomView alloc]init];
-	CustomView *xib = [[[NSBundle mainBundle] loadNibNamed:@"CustomView" owner:view  options:nil] objectAtIndex:0];
-	xib.delegate = self;
-	[self.view addSubview:xib];
+	self.xib = [[[NSBundle mainBundle] loadNibNamed:@"CustomView" owner:view  options:nil] objectAtIndex:0];
+	self.xib.delegate = self;
+	[self.view addSubview:self.xib];
 	self.indexPath = indexPath;
 }
 
@@ -59,6 +60,7 @@
 -(void)customView:(id)view clickedButton:(UIColor *)color {
 	PictureCollectionViewCell *cell = (PictureCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:self.indexPath];
 		cell.backgroundColor = color;
+    [self.xib setHidden:YES];
 }
 
 @end
